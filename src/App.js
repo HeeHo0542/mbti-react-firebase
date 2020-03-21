@@ -1,27 +1,27 @@
 import React from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>“It’s so incredible to finally be understood.”</h1>
-        <p>
-          Take our Personality Test and get a “freakishly accurate” description
-          of who you are and why you do things the way you do.
-        </p>
-        <a
-          className="App-link"
-          href="https://www.16personalities.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          16personalities
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route path="/test">
+            <Test />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
+};
+
+function Test() {
+  return <h2>Test</h2>;
 }
 
 export default App;
